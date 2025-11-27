@@ -1,0 +1,729 @@
+<!DOCTYPE html><html><head>
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article 8e65ebde-80be-4b8b-998b-5e7f3db67246 remove-padding-top remove-padding-bottom is-complete ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$1428700604$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="article__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="article__header ">
+              <div class="article__header-inner ">
+                  
+                    <!--?lit$1428700604$--> <div class=" article__title ">
+                      <!--?lit$1428700604$--><heading-view aria-hidden="true" id="8e65ebde-80be-4b8b-998b-5e7f3db67246-heading-view" headingtitle="Travaux pratiques - Cartographier l'Internet" modelid="8e65ebde-80be-4b8b-998b-5e7f3db67246" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="js-heading is-complete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$1428700604$-->Complet &nbsp;<!--?lit$1428700604$-->Travaux pratiques - Cartographier l'Internet</span>
+        </div>
+      </div>
+    </heading-view>
+                        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+                        <span class="accessibility-completion-indicator"><!--?lit$1428700604$-->Complet </span>
+                        <!--?lit$1428700604$-->Travaux pratiques - Cartographier l'Internet</div>
+                      </div>
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$1428700604$--><!---->
+                                    <block-view modelid="bf5f6dfa-d672-4d32-b508-f3a151b781ee" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="block-base-theme" sgpulse-type="block" style="width: 25%;"><!---->
+                
+                <div data-socialgoodpulse-id="bf5f6dfa-d672-4d32-b508-f3a151b781ee" class="bf5f6dfa-d672-4d32-b508-f3a151b781ee block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="bf5f6dfa-d672-4d32-b508-f3a151b781ee" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$1428700604$--><!----><text-view modelid="2520ab88-a873-4b16-a494-5f2ce4a5871c" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="2520ab88-a873-4b16-a494-5f2ce4a5871c" class="component text 2520ab88-a873-4b16-a494-5f2ce4a5871c  is-full is-complete  ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$1428700604$--><h2><span dir="LTR"></span><span lang="FR">Objectifs</span></h2> <p class="BodyTextL25Bold"><span lang="FR">Partie&nbsp;1&nbsp;: détermination de la connectivité réseau vers un hôte de destination</span></p> <p class="BodyTextL25Bold"><span lang="FR">Partie&nbsp;2&nbsp;: suivi d'une route vers un serveur distant à l'aide de la commande tracert</span></p> <h2><span dir="LTR"></span><span lang="FR">Contexte / scénario</span></h2> <p class="BodyTextL25"><span lang="FR">Le logiciel de traçage de route répertorie les réseaux que les données traversent depuis le périphérique final d'origine de l'utilisateur jusqu'à un périphérique de destination distant.</span></p> <p class="BodyTextL25"><span lang="FR">Cet outil de réseau s’exécute généralement dans une ligne de commande comme suit&nbsp;:</span></p> <p class="CMD"><b><span lang="FR">tracert</span></b><span lang="FR"> &lt;destination network name or end device address&gt;</span></p> <p class="BodyTextL50"><span lang="FR">(Systèmes Microsoft Windows)</span></p> <p class="BodyTextL25"><span lang="FR">ou</span></p> <p class="CMD"><b><span lang="FR">traceroute</span></b><span lang="FR"> &lt;destination network name or end device address&gt;</span></p> <p class="BodyTextL50"><span lang="FR">(Systèmes UNIX, Linux et appareils Cisco, tels que des commutateurs et des routeurs)</span></p> <p class="BodyTextL25"><b><span lang="FR">Tracert</span></b><span lang="FR"> et<b> traceroute</b> déterminent la route empruntée par les paquets dans un réseau IP.</span></p> <p class="BodyTextL25"><span lang="FR">L'outil <b>tracert</b> (ou <b>traceroute</b>) est souvent utilisé pour dépanner les réseaux. En affichant la liste des routeurs traversés, l'utilisateur peut identifier le chemin emprunté pour atteindre une destination particulière sur le réseau ou les interréseaux. Chaque routeur représente un point de connexion entre deux réseaux par lequel a été transféré le paquet de données. Le nombre de routeurs correspond au nombre de «&nbsp;sauts&nbsp;» effectués par les données depuis la source jusqu'à la destination.</span></p> <p class="BodyTextL25"><span lang="FR">La liste affichée permet d’identifier les problèmes de flux de données lors de la tentative d’accès à un service tel qu’un site Web. Elle permet également d'effectuer des tâches telles que le téléchargement de données. Si plusieurs sites web (miroirs) sont disponibles pour le même fichier de données, il est possible de tracer chaque miroir pour déterminer le plus rapide.</span></p> <p class="BodyTextL25"><span lang="FR">Les outils de traçage de route basés sur une interface en ligne de commande sont généralement intégrés au système d'exploitation du périphérique final. Cet exercice doit être effectué sur un ordinateur disposant d'un accès à Internet et d'un accès à une ligne de commandes.</span></p> <h2><span dir="LTR"></span><span lang="FR">Ressources requises</span></h2> <p class="BodyTextL25"><span lang="FR">PC avec un accès Internet</span></p> <h2><span dir="LTR"></span><span lang="FR">Instructions</span></h2> <h2><span lang="FR">Partie&nbsp;1&nbsp;: </span><span dir="LTR"></span><span lang="FR">Détermination de la connectivité réseau vers un hôte de destination</span></h2> <p class="BodyTextL25"><span lang="FR">Pour tracer la route jusqu'à un réseau distant, le PC doit disposer d'une connexion opérationnelle à Internet. Utilisez la commande <b>ping </b>pour tester si un hôte est accessible. Les paquets de données sont envoyés à l'hôte distant avec des instructions de réponse. Votre PC local mesure si une réponse est reçue pour chaque paquet ainsi que le temps nécessaire pour que ces paquets traversent le réseau.</span></p> <p class="SubStepAlpha"><span lang="FR">a.<span>&nbsp;&nbsp;</span></span><span dir="LTR"></span><span lang="FR">À l'invite de commande, saisissez <b>ping www.cisco.com</b> afin de déterminer si cette adresse est accessible.</span></p> <p class="CMD"><span lang="FR">C:&gt; <b>ping www.cisco.com</b></span></p><p class="CMD">&nbsp;</p><p class="CMDOutput"><span lang="FR">Ping e2867.dsca.akamaiedge.net [172.230.155.162] avec 32 bytes de données:</span></p> <p class="CMDOutput"><span lang="FR">Réponse du 104.119.64.57&nbsp;: octets=32 time=22ms TTL=55</span></p> <p class="CMDOutput"><span lang="FR">Réponse du 104.119.64.57&nbsp;: octets=32 time=20ms TTL=55</span></p> <p class="CMDOutput"><span lang="FR">Réponse du 104.119.64.57&nbsp;: octets=32 time=21ms TTL=55</span></p> <p class="CMDOutput"><span lang="FR">Réponse du 104.119.64.57&nbsp;: octets=32 time=20ms TTL=55</span></p><p class="CMD">&nbsp;</p><p class="CMDOutput"><span lang="FR">Statistiques Ping pour 104.119.64.57&nbsp;:</span></p> <p class="CMDOutput"><span lang="FR">&nbsp;&nbsp;&nbsp; Paquets: envoyés= 4, reçus= 4, perdus= 0 (perte 0%),</span></p> <p class="CMDOutput"><span lang="FR">Durée approximative des boucles in millisecondes:</span></p> <p class="CMDOutput"><span lang="FR">&nbsp;&nbsp;&nbsp; Minimum = 20ms, Maximum = 22ms, Moyenne = 20ms </span></p> <p class="SubStepAlpha"><span lang="FR">b.<span>&nbsp;&nbsp;</span></span><span dir="LTR"></span><span lang="FR">Envoyez maintenant une requête ping à l'un des sites web des organismes d'enregistrement Internet locaux situés dans différentes parties du monde afin de déterminer s'il est accessible&nbsp;:</span></p> <p class="BodyTextL50"><span lang="FR">Afrique&nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>www.afrinic.net</b></span></p> <p class="BodyTextL50"><span lang="FR">Australie&nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>www.apnic.net</b></span></p> <p class="BodyTextL50"><span lang="FR">Europe&nbsp;: <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; www.ripe.net</b></span></p> <p class="BodyTextL50"><span lang="FR">Amérique du Sud&nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>www.lacnic.net</b></span></p> <p class="BodyTextL50"><span lang="FR">Amérique du Nord&nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>www.arin.net</b></span></p> <p class="BodyTextL50"><span lang="FR">Le site Web que vous avez sélectionné sera utilisé dans la Partie&nbsp;2 avec la commande <b>tracert</b>.</span></p> <h2><span lang="FR">Partie&nbsp;2&nbsp;: </span><span dir="LTR"></span><span lang="FR">Tracer une route vers un serveur distant à l'aide de la commande tracert</span></h2> <p class="BodyTextL25"><span lang="FR">Après avoir déterminé si les sites Web que vous avez choisis sont accessibles au moyen d'une requête <b>ping</b>, vous allez utiliser la commande <b>tracert </b>afin de déterminer le chemin d'accès au serveur distant. Il est utile d'examiner plus attentivement chaque segment de réseau traversé.</span></p> <p class="BodyTextL25"><span lang="FR">Chaque saut dans les résultats de <b>tracert </b>indique les routes que les paquets empruntent lors de leur déplacement vers la destination finale. Le PC envoie trois paquets de requête d'écho ICMP à l'hôte distant. Chaque routeur présent dans le chemin décrémente la valeur de durée de vie de 1 avant de la passer au système suivant. Lorsque la valeur de durée de vie décrémentée atteint 0, le routeur renvoie un message ICMP de dépassement de délai à la source avec son adresse IP et l'heure actuelle. Lorsque la destination finale est atteinte, une réponse d'écho ICMP est envoyée à l'hôte source.</span></p> <p class="BodyTextL25"><span lang="FR">Par exemple, l'hôte source envoie trois paquets de requête d'écho ICMP au premier saut (192.168.1.1) avec la valeur de durée de vie de 1. Lorsque le routeur 192.168.1.1 reçoit les paquets de requête d'écho, il décrémente la valeur de durée de vie à 0. Le routeur renvoie un message ICMP de dépassement de délai à la source. Ce processus se poursuit jusqu'à ce que les hôtes source envoient les trois derniers paquets de requête d'écho ICMP avec des valeurs de durée de vie de 8 (numéro de saut 8 dans le résultat ci-dessous), ce qui correspond à la destination finale. Dès que les paquets de requête d'écho ICMP arrivent à leur destination finale, le routeur répond à la source avec des réponses d'écho ICMP.</span></p> <p class="BodyTextL25"><span lang="FR">Pour les sauts&nbsp;2 et&nbsp;3, ces adresses&nbsp;IP sont des adresses privées. Ces routeurs constituent la configuration typique du POP (Point-of-Presence) du fournisseur d'accès à Internet (FAI). Les périphériques POP connectent les utilisateurs au réseau d'un fournisseur d'accès Internet (FAI).</span></p> <p class="BodyTextL25"><span lang="FR">Un outil web whois est disponible à l'adresse <a href="http://whois.domaintools.com/" target="_blank">http://whois.domaintools.com/</a>. Il permet de déterminer les domaines parcourus depuis la source jusqu'à la destination.</span></p> <p class="SubStepAlpha"><span lang="FR">a.<span>&nbsp;&nbsp;</span></span><span dir="LTR"></span><span lang="FR">À l'invite de commande, déterminez la route vers www.cisco.com.</span></p> <p class="CMD"><span lang="FR">C:UsersUser1&gt; <b>tracert www.cisco.com</b></span></p><p class="CMD">&nbsp;</p><p class="CMDOutput"><span lang="FR">Tracing route to e144.dscb.akamaiedge.net [23.67.208.170]</span></p> <p class="CMDOutput"><span lang="FR">over a maximum of 30 hops:</span></p><p class="CMD">&nbsp;</p><p class="CMDOutput"><span lang="FR">&nbsp; 1 1 ms &lt;1 ms &lt;1 ms 192.168.1.1</span></p> <p class="CMDOutput"><span lang="FR">&nbsp; 2 14 ms 7 ms 7 ms 10.39.0.1</span></p> <p class="CMDOutput"><span lang="FR">&nbsp; 3 10&nbsp;ms 8&nbsp;ms 7&nbsp;ms 172.21.0.118</span></p> <p class="CMDOutput"><span lang="FR">&nbsp; 4 11&nbsp;ms 11&nbsp;ms 11&nbsp;ms 70.169.73.196</span></p> <p class="CMDOutput"><span lang="FR">&nbsp; 5 10 ms 9 ms 11 ms 70.169.75.157</span></p> <p class="CMDOutput"><span lang="FR">&nbsp; 6 60 ms 49 ms * 68.1.2.109</span></p> <p class="CMDOutput"><span lang="FR">&nbsp; 7 43 ms 39 ms 38 ms Equinix-DFW2.netarch.akamai.com [206.223.118.102]</span></p> <p class="CMDOutput"><span lang="FR">&nbsp; 8 33 ms 35 ms 33 ms a23-67-208-170.deploy.akamaitechnologies.com [23.67.208.170]</span></p><p class="CMD">&nbsp;</p><p class="CMDOutput"><span lang="FR">Trace complete.</span></p> <p class="SubStepAlpha"><span lang="FR">b.<span>&nbsp;&nbsp;</span></span><span dir="LTR"></span><span lang="FR">L'outil Web disponible à l'adresse <a href="http://whois.domaintools.com/" target="_blank">http://whois.domaintools.com/</a> peut être utilisé pour déterminer les propriétaires à la fois de l'adresse IP et des noms de domaine résultants affichés dans les résultats des outils tracert. Exécutez maintenant une commande tracert vers l'un des sites Web des organismes d'enregistrement Internet locaux de la Partie&nbsp;1 et enregistrez les résultats.</span></p> <p class="BodyTextL50"><span lang="FR">Afrique&nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>www.afrinic.net</b></span></p> <p class="BodyTextL50"><span lang="FR">Australie&nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>www.apnic.net</b></span></p> <p class="BodyTextL50"><span lang="FR">Europe&nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>www.ripe.net</b></span></p> <p class="BodyTextL50"><span lang="FR">Amérique du Sud&nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>www.lacnic.net</b></span></p> <p class="BodyTextL50"><span lang="FR">Amérique du Nord&nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>www.arin.net</b></span></p></div>
+                      </div>
+                    </div>
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="f5249328-0578-4772-83af-961fa9a26ea7" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="block-base-theme" sgpulse-type="block" style="width: 25%;"><!---->
+                
+                <div data-socialgoodpulse-id="f5249328-0578-4772-83af-961fa9a26ea7" class="f5249328-0578-4772-83af-961fa9a26ea7 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="f5249328-0578-4772-83af-961fa9a26ea7" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$1428700604$--><!----><opentextbox-view modelid="0c73e4f6-2803-4233-a38e-4504f206ce87" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="0c73e4f6-2803-4233-a38e-4504f206ce87" class="component opentextbox 0c73e4f6-2803-4233-a38e-4504f206ce87  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="0c73e4f6-2803-4233-a38e-4504f206ce87" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$1428700604$--> <div class="openTextBox__preText"><!--?lit$1428700604$--><p class="BodyTextL50"><span lang="FR">Indiquez ci-dessous les domaines issus de vos résultats tracert obtenus à l'aide de l'outil Web whois.</span></p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$1428700604$--><!--?lit$1428700604$-->Zone de réponse<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Tapez votre réponse ici." aria-label="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$1428700604$-->
+                      <!--?lit$1428700604$--><p class="BodyTextL50Answer"><span class="AnswerGray"><span lang="FR">Les réponses peuvent varier. cox.net, level3.com, registro.br</span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$1428700604$-->Afficher la réponse</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$1428700604$-->Masquer la réponse</button>                    
+                      </div>
+                      <!--?lit$1428700604$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="305cf936-ed67-42b7-beb6-2c521d977777" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="block-base-theme" sgpulse-type="block" style="width: 25%;"><!---->
+                
+                <div data-socialgoodpulse-id="305cf936-ed67-42b7-beb6-2c521d977777" class="305cf936-ed67-42b7-beb6-2c521d977777 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="305cf936-ed67-42b7-beb6-2c521d977777" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$1428700604$--><!----><text-view modelid="dd99aebd-7c23-4d4b-93a6-059d42f0626b" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="dd99aebd-7c23-4d4b-93a6-059d42f0626b" class="component text dd99aebd-7c23-4d4b-93a6-059d42f0626b  is-full is-complete  ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$1428700604$--><p class="SubStepAlpha"><span lang="FR">c.<span>&nbsp;&nbsp;</span></span><span dir="LTR"></span><span lang="FR">Comparez les listes des domaines traversés pour atteindre les destinations finales.</span></p> <h2><span dir="LTR"></span><span lang="FR">Remarques générales</span></h2></div>
+                      </div>
+                    </div>
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="b0837ca9-1755-4b2c-acad-1ad140bc704e" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="block-base-theme" sgpulse-type="block" style="width: 25%;"><!---->
+                
+                <div data-socialgoodpulse-id="b0837ca9-1755-4b2c-acad-1ad140bc704e" class="b0837ca9-1755-4b2c-acad-1ad140bc704e block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="b0837ca9-1755-4b2c-acad-1ad140bc704e" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$1428700604$--><!----><opentextbox-view modelid="1f681e4b-b2f1-4def-8d1f-a6fdf81fd485" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="1f681e4b-b2f1-4def-8d1f-a6fdf81fd485" class="component opentextbox 1f681e4b-b2f1-4def-8d1f-a6fdf81fd485  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="1f681e4b-b2f1-4def-8d1f-a6fdf81fd485" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+                  <!--?lit$1428700604$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$1428700604$--> <div class="openTextBox__preText"><!--?lit$1428700604$--><p class="BodyTextL25"><span lang="FR">Qu'est-ce qui peut influencer les résultats de la commande <b>tracert</b>&nbsp;?</span></p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$1428700604$--><!--?lit$1428700604$-->Zone de réponse<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Tapez votre réponse ici." aria-label="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$1428700604$-->
+                      <!--?lit$1428700604$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span lang="FR">Bien que pouvant varier, les réponses peuvent inclure des indisponibilités du réseau, des charges de trafic importantes, des paquets ICMP bloqués par un pare-feu, une liste de contrôle d'accès sur des périphériques intermédiaires empêchant le transfert des paquets ICMP ainsi que des chemins de transfert asymétriques.</span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$1428700604$-->Afficher la réponse</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$1428700604$-->Masquer la réponse</button>                    
+                      </div>
+                      <!--?lit$1428700604$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$1428700604$-->
+                    </div>
+                </div>
+            </div>
+        <sgpluse-opentextboxcontroller-view modelid="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="block-base-theme"><!---->
+            <div class="openTextBoxController__button-container">
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__showButton show-answer show"><!--?lit$1428700604$-->Afficher toutes les réponses</button>    
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__hideButton hide-answer hide"><!--?lit$1428700604$-->Masquer toutes les réponses</button>    
+                <button class="btn-text resetbtn openTextBoxController__resetButton"><!--?lit$1428700604$-->Effacer mes réponses</button>         
+            </div>
+            <!--?lit$1428700604$--><hr>
+            <!--?lit$1428700604$-->
+                <div class="post-text" tabindex="0">
+                    <!--?lit$1428700604$--><span> <span style="padding-right:5px;float:left;font-family:arial;font-size:12px;">© 2017 - 2023 Cisco and/or its affiliates. All rights reserved. Cisco Public</span> </span>
+                </div>
+                   
+        </sgpluse-opentextboxcontroller-view><script></script></body>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            .querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            .querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      var event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        .querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        .querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        .querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      .querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </html>

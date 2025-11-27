@@ -1,0 +1,2728 @@
+<!DOCTYPE html><html><head>
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article 37cbe989-48a5-4200-a9b8-c3c581f25d17 remove-padding-top remove-padding-bottom is-complete ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$678704294$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="article__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="article__header ">
+              <div class="article__header-inner ">
+                  
+                    <!--?lit$678704294$--> <div class=" article__title ">
+                      <!--?lit$678704294$--><heading-view aria-hidden="true" id="37cbe989-48a5-4200-a9b8-c3c581f25d17-heading-view" headingtitle="Travaux pratiques - vous vraiment connecté ?" modelid="37cbe989-48a5-4200-a9b8-c3c581f25d17" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="js-heading is-complete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$678704294$-->Complet &nbsp;<!--?lit$678704294$-->Travaux pratiques - vous vraiment connecté ?</span>
+        </div>
+      </div>
+    </heading-view>
+                        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+                        <span class="accessibility-completion-indicator"><!--?lit$678704294$-->Complet </span>
+                        <!--?lit$678704294$-->Travaux pratiques - vous vraiment connecté ?</div>
+                      </div>
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$678704294$--><!---->
+                                    <block-view modelid="7189df32-1248-4322-97b7-ecc46e790620" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme" sgpulse-type="block" style="width: 10%;"><!---->
+                
+                <div data-socialgoodpulse-id="7189df32-1248-4322-97b7-ecc46e790620" class="7189df32-1248-4322-97b7-ecc46e790620 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="7189df32-1248-4322-97b7-ecc46e790620" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$678704294$--><!----><text-view modelid="ec646020-1906-43a4-b41c-fe262852de71" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="ec646020-1906-43a4-b41c-fe262852de71" class="component text ec646020-1906-43a4-b41c-fe262852de71  is-full is-complete  ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$678704294$--><h2><span dir="LTR"></span><span lang="FR">Objectifs</span></h2> <p class="BodyTextL25"><span lang="FR">Interrogez&nbsp;3 ou 4&nbsp;personnes&nbsp;: famille, collègues et amis. Déterminez la durée en heures pendant laquelle ces personnes sont «&nbsp;connectées&nbsp;» (quel que soit l'appareil) chaque jour.</span></p> <h2><span dir="LTR"></span><span lang="FR">Contexte / scénario</span></h2> <p class="BodyTextL25"><span lang="FR">Les ordinateurs, Internet, les téléphones portables, les SMS et les réseaux sociaux sont devenus des habitudes de travail pour la plupart d'entre nous. Les personnes nées dans les années&nbsp;90 sont considérées comme des «&nbsp;natifs du numérique&nbsp;», ce qui signifie qu'elles n'ont jamais connu une époque où ces technologies n'existaient pas. Cette enquête permet de savoir combien de temps par jour vous êtes «&nbsp;connecté&nbsp;». Ainsi, nous comprendrons mieux l'impact de cette génération sur les entreprises et l'économie.</span></p> <h2><span dir="LTR"></span><span lang="FR">Ressources requises</span></h2> <p class="Bulletlevel1"><span lang="FR" style="font-size:7.0pt; line-height:115%;font-family:Webdings">=</span><span>&nbsp;&nbsp;</span><span dir="LTR"></span><span lang="FR">3&nbsp;ou 4&nbsp;personnes (amis, famille, collègues)</span></p> <h2><span dir="LTR"></span><span lang="FR">Instructions</span></h2> <p class="SubStepAlpha"><span lang="FR">a.<span>&nbsp;&nbsp;</span></span><span dir="LTR"></span><span lang="FR">Interrogez 3 ou 4&nbsp;familles, collègues et amis sur le temps passé devant les terminaux.</span></p> <p class="SubStepAlpha"><span lang="FR">b.<span>&nbsp;&nbsp;</span></span><span dir="LTR"></span><span lang="FR">Utilisez le tableau ci-dessous pour consigner vos observations.</span></p><p class="BodyTextL25"><span lang="FR">Cliquez sur <b>Afficher la réponse</b> pour voir un exemple de réponse.</span></p> </div>
+                      </div>
+                    </div>
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="8ae69fdd-1b49-4405-bb2e-76ec4393d980" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme" sgpulse-type="block" style="width: 10%;"><!---->
+                
+                <div data-socialgoodpulse-id="8ae69fdd-1b49-4405-bb2e-76ec4393d980" class="8ae69fdd-1b49-4405-bb2e-76ec4393d980 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="8ae69fdd-1b49-4405-bb2e-76ec4393d980" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$678704294$--><!----><table-view modelid="92113285-6776-4826-84af-c0b89e24ab6d" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+        <div class="table-inner component__inner"> 
+            <div data-socialgoodpulse-id="92113285-6776-4826-84af-c0b89e24ab6d" class="component table 92113285-6776-4826-84af-c0b89e24ab6d  is-full is-complete  ">
+                <div class="component__header-container">
+                    <div data-socialgoodpulse-id="92113285-6776-4826-84af-c0b89e24ab6d" class="table ">
+                        <base-view type="component" lowercase_component="table" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header table__header">
+              <div class="component__header-inner table__header-inner">
+                  
+                    <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                    </div>
+                </div>
+
+
+                <div class="component__widget table__widget">
+
+                <table tabindex="0" style="min-width: 800px">
+                <!--?lit$678704294$--><!---->
+                    <tbody><tr class="table-row nth-child-0 TableHeading">
+                    <!--?lit$678704294$--><!---->
+                                <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-0 ">
+                                   <!--?lit$678704294$--><p class=""><span lang="FR">&nbsp;</span></p>
+                                    <!--?lit$678704294$-->
+                                </th>
+                                <!----><!---->
+                                <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-1 ">
+                                   <!--?lit$678704294$--><p class=""><span lang="FR">Personne&nbsp;1</span></p>
+                                    <!--?lit$678704294$-->
+                                </th>
+                                <!----><!---->
+                                <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-2 ">
+                                   <!--?lit$678704294$--><p class=""><span lang="FR">&nbsp;</span></p>
+                                    <!--?lit$678704294$-->
+                                </th>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-1 TableHeading">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><p class=""><span lang="FR">Nom</span></p>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><p class=""><span lang="FR">Âge</span></p>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><p class=""><span lang="FR">Durée totale en heures</span></p>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-2 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-3 TableHeading">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><p class=""><span lang="FR">Appareil</span></p>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><p class=""><span lang="FR">Tâche</span></p>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><p class=""><span lang="FR">Durée en heures</span></p>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-4 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-5 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-6 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-7 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-8 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-9 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-10 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-11 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-12 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-13 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!---->
+                </tbody></table>
+                </div>
+            </div>
+        <div>
+        </div>
+        </div></div></table-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="d6a1ec75-e4fa-45e2-b04e-6cac9f497949" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme" sgpulse-type="block" style="width: 10%;"><!---->
+                
+                <div data-socialgoodpulse-id="d6a1ec75-e4fa-45e2-b04e-6cac9f497949" class="d6a1ec75-e4fa-45e2-b04e-6cac9f497949 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="d6a1ec75-e4fa-45e2-b04e-6cac9f497949" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$678704294$--><!----><table-view modelid="eb4ae946-c3b8-43ee-8a1f-77d50c3b6c15" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+        <div class="table-inner component__inner"> 
+            <div data-socialgoodpulse-id="eb4ae946-c3b8-43ee-8a1f-77d50c3b6c15" class="component table eb4ae946-c3b8-43ee-8a1f-77d50c3b6c15  is-full is-complete  ">
+                <div class="component__header-container">
+                    <div data-socialgoodpulse-id="eb4ae946-c3b8-43ee-8a1f-77d50c3b6c15" class="table ">
+                        <base-view type="component" lowercase_component="table" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header table__header">
+              <div class="component__header-inner table__header-inner">
+                  
+                    <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                    </div>
+                </div>
+
+
+                <div class="component__widget table__widget">
+
+                <table tabindex="0" style="min-width: 800px">
+                <!--?lit$678704294$--><!---->
+                    <tbody><tr class="table-row nth-child-0 TableHeading">
+                    <!--?lit$678704294$--><!---->
+                                <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-0 ">
+                                   <!--?lit$678704294$--><p class=""><span lang="FR">&nbsp;</span></p>
+                                    <!--?lit$678704294$-->
+                                </th>
+                                <!----><!---->
+                                <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-1 ">
+                                   <!--?lit$678704294$--><p class=""><span lang="FR">Personne&nbsp;2</span></p>
+                                    <!--?lit$678704294$-->
+                                </th>
+                                <!----><!---->
+                                <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-2 ">
+                                   <!--?lit$678704294$--><p class=""><span lang="FR">&nbsp;</span></p>
+                                    <!--?lit$678704294$-->
+                                </th>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-1 TableHeading">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><p class=""><span lang="FR">Nom</span></p>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><p class=""><span lang="FR">Âge</span></p>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><p class=""><span lang="FR">Durée totale en heures</span></p>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-2 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-3 TableHeading">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><p class=""><span lang="FR">Appareil</span></p>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><p class=""><span lang="FR">Tâche</span></p>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><p class=""><span lang="FR">Durée en heures</span></p>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-4 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-5 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-6 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-7 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-8 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-9 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-10 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-11 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-12 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-13 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!---->
+                </tbody></table>
+                </div>
+            </div>
+        <div>
+        </div>
+        </div></div></table-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="2b874145-247b-4a55-b7ae-9957aca3bc7b" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme" sgpulse-type="block" style="width: 10%;"><!---->
+                
+                <div data-socialgoodpulse-id="2b874145-247b-4a55-b7ae-9957aca3bc7b" class="2b874145-247b-4a55-b7ae-9957aca3bc7b block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="2b874145-247b-4a55-b7ae-9957aca3bc7b" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$678704294$--><!----><table-view modelid="0ffa2e94-4d8c-4a19-a28d-966df24059cc" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+        <div class="table-inner component__inner"> 
+            <div data-socialgoodpulse-id="0ffa2e94-4d8c-4a19-a28d-966df24059cc" class="component table 0ffa2e94-4d8c-4a19-a28d-966df24059cc  is-full is-complete  ">
+                <div class="component__header-container">
+                    <div data-socialgoodpulse-id="0ffa2e94-4d8c-4a19-a28d-966df24059cc" class="table ">
+                        <base-view type="component" lowercase_component="table" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header table__header">
+              <div class="component__header-inner table__header-inner">
+                  
+                    <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                    </div>
+                </div>
+
+
+                <div class="component__widget table__widget">
+
+                <table tabindex="0" style="min-width: 800px">
+                <!--?lit$678704294$--><!---->
+                    <tbody><tr class="table-row nth-child-0 TableHeading">
+                    <!--?lit$678704294$--><!---->
+                                <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-0 ">
+                                   <!--?lit$678704294$--><p class=""><span lang="FR">&nbsp;</span></p>
+                                    <!--?lit$678704294$-->
+                                </th>
+                                <!----><!---->
+                                <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-1 ">
+                                   <!--?lit$678704294$--><p class=""><span lang="FR">Personne&nbsp;3</span></p>
+                                    <!--?lit$678704294$-->
+                                </th>
+                                <!----><!---->
+                                <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-2 ">
+                                   <!--?lit$678704294$--><p class=""><span lang="FR">&nbsp;</span></p>
+                                    <!--?lit$678704294$-->
+                                </th>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-1 TableHeading">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><p class=""><span lang="FR">Nom</span></p>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><p class=""><span lang="FR">Âge</span></p>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><p class=""><span lang="FR">Durée totale en heures</span></p>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-2 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-3 TableHeading">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><p class=""><span lang="FR">Appareil</span></p>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><p class=""><span lang="FR">Tâche</span></p>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><p class=""><span lang="FR">Durée en heures</span></p>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-4 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-5 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-6 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-7 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-8 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-9 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-10 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-11 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-12 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-13 ">
+                    <!--?lit$678704294$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$678704294$--><div class="TableAnswer"><fieldset style="font-size:10px;font-style:normal;color:gray;"><legend>Zone de réponse</legend><textarea rows="3" name="answerArea" placeholder="Tapez votre réponse ici." style="border:none;width:100%;"></textarea></fieldset></div>
+                                 <!--?lit$678704294$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!---->
+                </tbody></table>
+                </div>
+            </div>
+        <div>
+        </div>
+        </div></div></table-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="02f33a06-cdc1-4ab5-9fb4-463981d7af79" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme" sgpulse-type="block" style="width: 10%;"><!---->
+                
+                <div data-socialgoodpulse-id="02f33a06-cdc1-4ab5-9fb4-463981d7af79" class="02f33a06-cdc1-4ab5-9fb4-463981d7af79 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="02f33a06-cdc1-4ab5-9fb4-463981d7af79" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$678704294$--><!----><opentabletextbox-view modelid="edd390c6-6589-49c0-8db0-fcb4d061889d" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme" sgpulse-type="component"><!---->
+      <div class="component">
+        <div class="opentabletextbox-inner component__inner">
+          <div data-socialgoodpulse-id="edd390c6-6589-49c0-8db0-fcb4d061889d" class="component opentabletextbox edd390c6-6589-49c0-8db0-fcb4d061889d  is-full is-complete  ">
+            <div class="component__header-container">
+              <div data-socialgoodpulse-id="edd390c6-6589-49c0-8db0-fcb4d061889d" class="opentabletextbox ">
+                <base-view type="component" lowercase_component="openTableTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTableTextBox__header">
+              <div class="component__header-inner openTableTextBox__header-inner">
+                  
+                    <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+              </div>
+            </div>
+            <div class="component__widget opentabletextBox__widget question-container ">
+              <div class="openTableTextBox__preText">
+                <!--?lit$678704294$-->
+              </div>
+              <div class="opentabletextbox-container openTableTextBox__table-container">
+                <table class="opentabletextbox-table" tabindex="0">
+                  <!--?lit$678704294$-->
+                        <thead class="openTableTextBox__table-header">
+                          <tr>
+                            <!--?lit$678704294$--><!----><th tabindex="0" scope="col"><!--?lit$678704294$--></th><!----><!----><th tabindex="0" scope="col"><!--?lit$678704294$-->Personne 4</th><!----><!----><th tabindex="0" scope="col"><!--?lit$678704294$--></th><!---->
+                          </tr>
+                        </thead>
+                  <tbody>
+                    <!--?lit$678704294$--><!---->
+                        <tr class="openTableTextBox__table-row TableHeading">
+                          <!--?lit$678704294$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$--><div><!--?lit$678704294$-->Nom</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$--><div><!--?lit$678704294$-->Âge</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$--><div><!--?lit$678704294$-->Durée totale en heures</div>
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$678704294$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row TableHeading">
+                          <!--?lit$678704294$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$--><div><!--?lit$678704294$-->Appareil</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$--><div><!--?lit$678704294$-->Tâche</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$--><div><!--?lit$678704294$-->Durée en heures</div>
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$678704294$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$678704294$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$678704294$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$678704294$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$678704294$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$678704294$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$678704294$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$678704294$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$678704294$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$678704294$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$678704294$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!---->
+                  </tbody>
+                </table>
+              </div>
+              <div class="openTableTextBox__answerText answergray openTableTextBox__table-container is-full hide">
+                <table class="opentabletextbox-table openTableTextBox__table-inner" tabindex="0">
+                  <!--?lit$678704294$-->
+                        <thead class="openTableTextBox__table-header">
+                          <tr tabindex="0">
+                            <!--?lit$678704294$--><!----><th scope="col"><!--?lit$678704294$--></th><!----><!----><th scope="col"><!--?lit$678704294$-->Personne 4</th><!----><!----><th scope="col"><!--?lit$678704294$--></th><!---->
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <!--?lit$678704294$--><!---->
+                                <tr class="openTableTextBox__table-row TableHeading">
+                                  <!--?lit$678704294$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->Nom</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->Âge</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->Durée totale en heures</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$678704294$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->Bob</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->43</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->33.5</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row TableHeading">
+                                  <!--?lit$678704294$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->Appareil</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->Tâche</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->Durée en heures</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$678704294$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->Smartphone</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->Facebook</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->4</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$678704294$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->Smartphone</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->Conversation</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->2</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$678704294$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->Smartphone</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->Envoyez des messages</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->10</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$678704294$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->Smartphone</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->Twitter</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->3</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$678704294$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->FitBit</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->Exercice de suivi</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->14</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$678704294$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->Tablette</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->Opérations bancaires en ligne</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$678704294$-->0.5</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!----><!----><!----><!----><!----><!----><!----><!---->
+                      </tbody>
+                </table>
+              </div>
+              <div class="btn__container">
+                <button class="btn-text openTableTextBox__showButton show-answer show"><!--?lit$678704294$-->Afficher la réponse</button>
+                <button class="btn-text openTableTextBox__showButton hide-answer hide"><!--?lit$678704294$-->Masquer la réponse</button>
+              </div>
+              <div class="openTableTextBox__postText">
+                <!--?lit$678704294$-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </opentabletextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="be049342-30c0-4cad-b116-f2a05d28ee01" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme" sgpulse-type="block" style="width: 10%;"><!---->
+                
+                <div data-socialgoodpulse-id="be049342-30c0-4cad-b116-f2a05d28ee01" class="be049342-30c0-4cad-b116-f2a05d28ee01 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="be049342-30c0-4cad-b116-f2a05d28ee01" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$678704294$--><!----><text-view modelid="8d7da529-0708-4179-84ba-5c29091ed8b2" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="8d7da529-0708-4179-84ba-5c29091ed8b2" class="component text 8d7da529-0708-4179-84ba-5c29091ed8b2  is-full is-complete  ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$678704294$--><h2><span dir="LTR"></span><span lang="FR">Remarques générales</span></h2></div>
+                      </div>
+                    </div>
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6cbbcb2c-9cf4-4f24-9648-6d031136e249" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme" sgpulse-type="block" style="width: 10%;"><!---->
+                
+                <div data-socialgoodpulse-id="6cbbcb2c-9cf4-4f24-9648-6d031136e249" class="6cbbcb2c-9cf4-4f24-9648-6d031136e249 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6cbbcb2c-9cf4-4f24-9648-6d031136e249" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$678704294$--><!----><opentextbox-view modelid="8370c4a9-e554-4576-9c19-44d3f6ec56e9" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="8370c4a9-e554-4576-9c19-44d3f6ec56e9" class="component opentextbox 8370c4a9-e554-4576-9c19-44d3f6ec56e9  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="8370c4a9-e554-4576-9c19-44d3f6ec56e9" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$678704294$--> <div class="openTextBox__preText"><!--?lit$678704294$--><p class="ReflectionQ"><span lang="FR">1.<span>&nbsp;&nbsp;</span></span><span dir="LTR"></span><span lang="FR">Combien de temps par jour, en moyenne, les personnes que vous avez interrogées sont-elles «&nbsp;connecté&nbsp;»&nbsp;?</span></p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Tapez votre réponse ici." aria-label="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$678704294$-->
+                      <!--?lit$678704294$--><p class="BodyTextL50Answer"><span class="AnswerGray"><span lang="FR">Plusieurs réponses sont possibles.</span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$678704294$-->Afficher la réponse</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$678704294$-->Masquer la réponse</button>                    
+                      </div>
+                      <!--?lit$678704294$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="e7fbed04-ce62-42c2-a086-38ab86fafd06" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme" sgpulse-type="block" style="width: 10%;"><!---->
+                
+                <div data-socialgoodpulse-id="e7fbed04-ce62-42c2-a086-38ab86fafd06" class="e7fbed04-ce62-42c2-a086-38ab86fafd06 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="e7fbed04-ce62-42c2-a086-38ab86fafd06" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$678704294$--><!----><opentextbox-view modelid="a7a6d46b-76e1-44fa-aa50-e2eeeb4f23e1" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="a7a6d46b-76e1-44fa-aa50-e2eeeb4f23e1" class="component opentextbox a7a6d46b-76e1-44fa-aa50-e2eeeb4f23e1  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="a7a6d46b-76e1-44fa-aa50-e2eeeb4f23e1" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$678704294$--> <div class="openTextBox__preText"><!--?lit$678704294$--><p class="ReflectionQ"><span lang="FR">2.<span>&nbsp;&nbsp;</span></span><span dir="LTR"></span><span lang="FR">Combien de personnes se connectent à plusieurs appareils à la fois&nbsp;?</span></p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Tapez votre réponse ici." aria-label="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$678704294$-->
+                      <!--?lit$678704294$--><p class="BodyTextL50Answer"><span class="AnswerGray"><span lang="FR">Les réponses peuvent varier.</span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$678704294$-->Afficher la réponse</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$678704294$-->Masquer la réponse</button>                    
+                      </div>
+                      <!--?lit$678704294$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="8e92915f-de73-4aa8-bb21-71aea70cc9aa" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme" sgpulse-type="block" style="width: 10%;"><!---->
+                
+                <div data-socialgoodpulse-id="8e92915f-de73-4aa8-bb21-71aea70cc9aa" class="8e92915f-de73-4aa8-bb21-71aea70cc9aa block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="8e92915f-de73-4aa8-bb21-71aea70cc9aa" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$678704294$--><!----><opentextbox-view modelid="96d64a41-d64b-45cd-80cc-01bf63d15060" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="96d64a41-d64b-45cd-80cc-01bf63d15060" class="component opentextbox 96d64a41-d64b-45cd-80cc-01bf63d15060  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="96d64a41-d64b-45cd-80cc-01bf63d15060" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$678704294$--> <div class="openTextBox__preText"><!--?lit$678704294$--><p class="ReflectionQ"><span lang="FR">3.<span>&nbsp;&nbsp;</span></span><span dir="LTR"></span><span lang="FR">L'âge a-t-il une incidence sur la durée de «&nbsp;connexion&nbsp;» par jour&nbsp;? Si oui, quelle en est la raison, d'après vous&nbsp;?</span></p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Tapez votre réponse ici." aria-label="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$678704294$-->
+                      <!--?lit$678704294$--><p class="BodyTextL50Answer"><span class="AnswerGray"><span lang="FR">La réponse peut être oui.&nbsp;Les réponses seront différentes pour la deuxième question.</span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$678704294$-->Afficher la réponse</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$678704294$-->Masquer la réponse</button>                    
+                      </div>
+                      <!--?lit$678704294$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="33925ca4-04d8-4275-9f7b-8a3b09b4f119" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme" sgpulse-type="block" style="width: 10%;"><!---->
+                
+                <div data-socialgoodpulse-id="33925ca4-04d8-4275-9f7b-8a3b09b4f119" class="33925ca4-04d8-4275-9f7b-8a3b09b4f119 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="33925ca4-04d8-4275-9f7b-8a3b09b4f119" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$678704294$--><!----><opentextbox-view modelid="390a9287-1419-46bb-accb-1d124eb612fe" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="390a9287-1419-46bb-accb-1d124eb612fe" class="component opentextbox 390a9287-1419-46bb-accb-1d124eb612fe  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="390a9287-1419-46bb-accb-1d124eb612fe" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+                  <!--?lit$678704294$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$678704294$--> <div class="openTextBox__preText"><!--?lit$678704294$--><p class="ReflectionQ"><span lang="FR">4.<span>&nbsp;&nbsp;</span></span><span dir="LTR"></span><span lang="FR">Quel impact ces informations peuvent-elles avoir sur la façon dont les entreprises gèrent leurs processus&nbsp;?</span></p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$678704294$--><!--?lit$678704294$-->Zone de réponse<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Tapez votre réponse ici." aria-label="Tapez votre réponse ici.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$678704294$-->
+                      <!--?lit$678704294$--><p class="BodyTextL50Answer"><span class="AnswerGray"><span lang="FR">Différentes réponses sont possibles, dont&nbsp;: les entreprises devront investir davantage dans le marketing et les ventes en ligne.</span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$678704294$-->Afficher la réponse</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$678704294$-->Masquer la réponse</button>                    
+                      </div>
+                      <!--?lit$678704294$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$678704294$-->
+                    </div>
+                </div>
+            </div>
+        <sgpluse-opentextboxcontroller-view modelid="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="block-base-theme"><!---->
+            <div class="openTextBoxController__button-container">
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__showButton show-answer show"><!--?lit$678704294$-->Afficher toutes les réponses</button>    
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__hideButton hide-answer hide"><!--?lit$678704294$-->Masquer toutes les réponses</button>    
+                <button class="btn-text resetbtn openTextBoxController__resetButton"><!--?lit$678704294$-->Effacer mes réponses</button>         
+            </div>
+            <!--?lit$678704294$--><hr>
+            <!--?lit$678704294$-->
+                <div class="post-text" tabindex="0">
+                    <!--?lit$678704294$--><span> <span style="padding-right:5px;float:left;font-family:arial;font-size:12px;">© 2017 - 2023 Cisco and/or its affiliates. All rights reserved. Cisco Public</span> </span>
+                </div>
+                   
+        </sgpluse-opentextboxcontroller-view><script></script></body>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            .querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            .querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      var event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        .querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        .querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        .querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      .querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </html>
